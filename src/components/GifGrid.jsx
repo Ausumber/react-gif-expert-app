@@ -3,7 +3,7 @@ import {getGifs} from '../helpers/getGifs';
 import { useFetchGifs } from '../hooks/useFetchGifs';
 import { GifItem } from './GifItem';
 
-export const GifGrid = ({category}) => {
+export const GifGrid = ({category, onDeleteCategory}) => {
 
     // const [images, setImages] = useState([]); //Inicializa el hook de las imágenes.
 
@@ -28,7 +28,11 @@ export const GifGrid = ({category}) => {
 
     return (
         <>
-            <h3>{category}</h3>
+            <h3>{category}</h3> 
+            <button onClick={() => onDeleteCategory(category)}>Eliminar</button> 
+            {/*Al hacer click, llamamos a onDeleteCategory, función que extraemos de las props y traída del componente padre GifExpertApp. 
+               Además, para pasarle un parámetro hay que hacerlo con una función de flecha.
+            */}
             {
                 isLoading && (<h2>Cargando</h2>)
             }

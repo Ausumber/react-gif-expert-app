@@ -27,6 +27,12 @@ export const GifExpertApp = () => {
 
     }
 
+    const onDeleteCategory = (category) => {
+        
+        setCategories(categories.filter((i) => i !== category));
+
+    }
+
     return (
         <>
             {/* Título */}
@@ -49,7 +55,11 @@ export const GifExpertApp = () => {
             {/* <ol> */}
                 {categories.map(category => //{//Básicamente recorres el array de categorías y devuelves un li con cada una.
                     //return //Ya que la función sólo devuelve un return, se puede omitir el return y las llaves de la función.
-                    <GifGrid key={category} category={category}/>
+                    <GifGrid 
+                        key={category} 
+                        category={category} 
+                        onDeleteCategory={onDeleteCategory} /*Mandamos la función onDeleteCategory como propiedad al componente Gifrid.*/
+                    />
                 //}
                 )}
             {/* </ol> */}
